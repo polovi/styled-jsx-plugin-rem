@@ -8,7 +8,7 @@ const round = (value, precision) => {
   return Math.floor(value * precision) / precision;
 };
 
-const plugin = (css, options) => {
+module.exports = (css, options) => {
   const { base, precision } = Object.assign({}, defaults, options);
   return css.replace(/rem\((\d*\.?\d+)(px)\)/g, (match, value, unit) => {
     return `${round(parseFloat(value) / base, precision)}rem`;
